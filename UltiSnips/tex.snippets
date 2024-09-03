@@ -1,0 +1,327 @@
+snippet epp "Expectation" wA
+E\left[ $1\right] $0
+endsnippet
+
+snippet econgraph "economics graph" bA
+\begin{center}
+   \begin{tikzpicture}
+      \begin{axis}
+         [
+         scale = 1.2,
+         xmin = 0, 
+         xmax = 10, 
+         ymin = 0, 
+         ymax = 10,
+         xtick = {0},
+         ytick = \empty,
+         axis lines* = left,
+         clip = false, 
+         ]
+         \addplot[
+            domain = 0:10, 
+            restrict y to domain = 0:10, 
+            samples = 400, 
+            color = red
+          ]{
+              $3
+           };
+         \node [right] at (current axis.right of origin) {$ $1 $};
+         \node [above] at (current axis.above origin) {$ $2 $};
+      \end{axis}
+   \end{tikzpicture}
+\end{center}
+
+$0
+
+endsnippet
+
+
+
+snippet fl "fancy L" wA
+\mathscr{L}
+endsnippet
+
+snippet stm "backslash" wA
+\setminus
+endsnippet
+
+snippet stt "st" wA
+\\{ $1 \\} $0
+endsnippet
+
+snippet --> "rightarrow" wA
+$\rightarrow$ 
+endsnippet
+
+
+snippet vb "verbatim" wA
+\verb| $1 | $0
+endsnippet
+
+snippet sympy "sympy block" w
+sympy $1 sympy $0
+endsnippet
+
+priority 10000
+snippet 'sympy(.*)sympy' "evaluate sympy" wr
+`!p
+from sympy import *
+x, y, z, t = symbols('x y z t')
+k, m, n = symbols('k m n', integer=True)
+f, g, h = symbols('f g h', cls=Function)
+init_printing()
+snip.rv = eval('latex(' + match.group(1).replace('\\', '') \
+    .replace('^', '**') \
+    .replace('{', '(') \
+    .replace('}', ')') + ')')
+`
+endsnippet
+
+snippet ht "hat" wA
+\hat{$1}$0
+endsnippet
+
+snippet vc "vector arrow on top" wA
+\vec{$1}$0
+endsnippet
+
+snippet geq "greater equal" 
+\geq
+endsnippet
+
+snippet leq "less equal" 
+\leq
+endsnippet
+
+snippet sqrt "sqrt" wA
+\sqrt{$1}$0
+endsnippet
+
+snippet sigma "sigma" 
+\sigma
+endsnippet
+
+snippet pi "pi" 
+\pi
+endsnippet
+
+snippet phi "phi" 
+\phi
+endsnippet
+
+snippet rho "rho" 
+\rho
+endsnippet
+
+snippet theta "theta" 
+\theta
+endsnippet
+
+snippet oll "overline" wAi
+\overline{$1}$0
+endsnippet
+
+
+snippet preamble "preamble" 
+\documentclass[a4paper, 10pt]{report}
+
+\usepackage[margin = 1in]{geometry}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{framed}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+
+\setlength{\parindent}{0em}
+\newcolumntype{L}{>{\arraybackslash}m{10cm}}
+\newcolumntype{T}{>{\arraybackslash}m{6cm}}
+
+
+\begin{document}
+
+\end{document}
+
+endsnippet
+
+snippet itg "integrate" wA
+\int_{$1}^{$2} $0 
+endsnippet
+
+snippet smm "summation" wA
+\sum\limits_{$1}^{$2} $0
+endsnippet
+
+snippet prd "partial derivative" wA
+\frac{\partial $1}{\partial $2}$0
+endsnippet
+
+snippet md "multivariate derivative" wA
+\left[ D $1 \right]_{$2} $0
+endsnippet
+
+snippet evat "evaluate at" wA
+\left. $1 \right|_{$2}^{$3} $0
+endsnippet
+
+
+snippet mtx "matrix" A
+\begin{bmatrix} 
+  $1  
+\end{bmatrix}
+$0
+endsnippet
+
+
+snippet || "absolute value" A
+\left| $1 \right| $2
+endsnippet
+
+snippet pt "probability" wA
+P(\text{ $1 }) = $2
+endsnippet
+
+snippet pb "probability" wA
+P( $1 )$ = 2
+endsnippet
+
+snippet bb "textbf" wA
+\textbf{$1}$0
+endsnippet
+
+snippet formula_list "formula list" 
+\begin{framed}
+   \begin{minipage}[t]{0.48\textwidth}
+   \begin{align*}
+     $1
+   \end{align*}
+   \end{minipage}
+   \hfill
+   \begin{minipage}[t]{0.48\textwidth}%
+   \begin{align*}
+     $2
+   \end{align*}
+   \end{minipage}
+\end{framed}
+
+$0
+endsnippet
+
+
+snippet () "auto brackets" A
+\left( $1 \right) $0
+endsnippet
+
+snippet tht "theta" A
+\theta
+endsnippet
+
+snippet pp "prime" A
+^{\prime}
+endsnippet
+
+snippet RR "real number R" Ai
+\mathbb{R}
+endsnippet
+
+snippet ull "underline, for vectors" wA
+\underline{$1}$0
+endsnippet
+
+snippet nn "norm of vector" A
+\lVert $1 \rVert $0
+endsnippet
+
+snippet ll "italics" bA
+\italicize{$1}$0
+endsnippet
+
+snippet iv "inline vector" A
+\begin{pmatrix} $1 \end{pmatrix} $0
+endsnippet
+
+snippet mlv "multi line vector" A
+\begin{pmatrix} 
+  $1  
+\end{pmatrix}
+$0
+endsnippet
+
+snippet {} "bracket autocompletion" Ai
+{$1}$0
+endsnippet
+
+snippet ee "emphasis" bA
+\emph{$1}$0
+endsnippet
+
+snippet tt "the \text{} for typewriter-style font" wA
+\text{$1}$0
+endsnippet
+
+snippet ff "the LaTex \frac{}{} command" A
+\frac{$1}{$2}$0
+endsnippet
+
+snippet beg "new LaTex environment" bA
+\begin{$1}
+  $2
+\end{$1}
+$0
+endsnippet
+
+snippet beg "new LaTex environment" 
+\begin{$1}
+  $2
+\end{$1}
+$0
+endsnippet
+
+snippet mk "inline math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+   snip.rv = ' '
+else:
+   snip.rv = ''
+`$2
+endsnippet
+
+snippet dm "multiline math" wA
+\[
+  $1
+\] $0
+endsnippet
+
+snippet box "Box"
+`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+| $1 | 
+`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+$0
+endsnippet
+
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+endsnippet
+
+snippet td "superscript" iA
+^{$1}$0
+endsnippet
+
+snippet section "section"
+\section{$1}$0
+endsnippet
+
+snippet subsection "subsection"
+\subsection{$1}$0
+endsnippet
+
+snippet section* "subsection"
+\subsection*{$1}$0
+endsnippet
